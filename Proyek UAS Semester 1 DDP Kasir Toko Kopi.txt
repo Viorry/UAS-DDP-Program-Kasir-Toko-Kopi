@@ -1,0 +1,565 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+string menu[5]={"1. Black Coffee","2. Americano","3. Latte","4. Mochacinno","5. Cappucinno"};
+int jumlahminum, pilihan, pilihankopi, bungkus, hargadiskon, hargafinal, minumdingin, minumhangat, ulang, uangbayar, uangkembalian, harga;
+float diskon;
+
+awal:
+do{
+
+cout<<"\nSelamat datang di Program Self-Checkout Toko Kopi Jaya"<<endl;
+cout<<"Berhubung dengan Anniversary 5 tahun Toko Kopi Jaya, kami memberikan diskon untuk setiap pemesanan kopi dalam kelipatan 5 sampai max 30pcs kopi"<<endl;
+cout<<"\nSilahkan pilih kopi selera anda"<<endl;
+
+for(int i=0; i<5; i++){
+    cout<<menu[i]<<endl;
+}
+cin>>pilihankopi;
+
+switch (pilihankopi){
+
+
+default:
+cout<<"Maaf, format anda tidak sesuai"<<endl;
+break;
+
+
+case 1:
+cout<<"Anda memilih Black Coffee seharga RP.10.000 per pcs"<<endl;
+cout<<"\nSilahkan masukkan jumlah Black Coffee yang ingin anda pesan: "<<endl;
+cout<<"N.B. Max diskon adalah 40%. Memesan lebih dari 30pcs tidak akan melewati diskon 40%"<<endl;
+cin>>jumlahminum;
+cout<<"Anda memesan "<<jumlahminum<<" pcs Black Coffee"<<endl;
+
+
+if(jumlahminum >= 5 && jumlahminum <= 9){
+    cout<<"\nSelamat anda mendapatkan diskon 10%!"<<endl;
+    diskon=0.10;
+}
+else if(jumlahminum >= 10 && jumlahminum <= 14){
+    cout<<"\nSelamat anda mendapatkan diskon 15%!"<<endl;
+    diskon=0.15;
+}
+else if(jumlahminum >= 15 && jumlahminum <= 19){
+    cout<<"\nSelamat anda mendapatkan diskon 20%!"<<endl;
+    diskon=0.20;
+}
+else if(jumlahminum >= 20 && jumlahminum <= 24){
+    cout<<"\nSelamat anda mendapatkan diskon 25%!"<<endl;
+    diskon=0.25;
+}
+else if(jumlahminum >= 25 && jumlahminum <= 29){
+    cout<<"\nSelamat anda mendapatkan diskon 30%!"<<endl;
+    diskon=0.30;
+}
+else if(jumlahminum >= 30){
+    cout<<"\nSelamat anda mendapatkan diskon maksimal dari Toko kami, sebanyak 40%!!!"<<endl;
+    diskon=0.40;
+}
+else {
+    cout<<"\nMaaf, berhubung pemesanan anda kurang dari 5 pcs, anda tidak mendapat diskon"<<endl;
+    diskon=0;
+}
+
+suhu1:
+cout<<"\nSilahkan masukkan jumlah Black Coffee dingin/hangat yang anda inginkan"<<endl;
+cout<<"\nBerapa pcs Black Coffee dingin yang anda inginkan?"<<endl;
+cin>>minumdingin;
+cout<<"Berapa pcs Black Coffee hangat yang anda inginkan?"<<endl;
+cin>>minumhangat;
+if(minumdingin+minumhangat!=jumlahminum){
+    cout<<"Maaf, jumlah total Black Coffee dingin/hangat anda tidak sesuai dengan jumlah total Black Coffee yang anda pesan"<<endl;
+    cout<<"Mohon sesuaikan dengan total jumlah yang anda pesan"<<endl;
+    goto suhu1;
+}
+
+
+else {
+pembayaran1:
+cout<<"\nSilahkan masukkan jumlah uang pembayaran anda"<<endl;
+cin>>uangbayar;
+
+
+harga=jumlahminum*10000;
+
+cout<<"\nTotal harga: Rp."<<harga<<endl;
+
+hargadiskon=diskon*harga;
+
+hargafinal=harga-hargadiskon;
+
+cout<<"Diskon: Rp."<<hargadiskon<<endl;
+
+cout<<"Total harga setelah didiskon: Rp."<<hargafinal<<endl;
+
+cout<<"Uang anda: Rp."<<uangbayar<<endl;
+
+uangkembalian=uangbayar - hargafinal;
+if(uangbayar<hargafinal){
+    cout<<"Maaf, uang anda tidak cukup"<<endl;
+    cout<<"Apakah anda ingin mengulang memasukkan uang anda atau kembali ke menu?"<<endl;
+    cout<<"\t1. Masukkan uang kembali\t2. Kembali ke menu\t3. Keluar dari program"<<endl;
+    cin>>pilihan;
+    if(pilihan == 1)
+    goto pembayaran1;
+    if(pilihan == 2)
+    goto awal;
+    if(pilihan == 3)
+    goto akhir;
+}
+
+else{
+cout<<"Uang kembalian anda: RP."<<uangkembalian<<" "<<endl;
+cout<<"\nApakah anda ingin \t1. Takeaway?\t2. Minum ditempat?"<<endl;
+cin>>bungkus;
+if(bungkus == 1){
+    cout<<"Terimakasih atas pesanannya. Kopi anda akan segera dikemas"<<endl;
+}
+else if(bungkus == 2){
+    cout<<"Terimakasih atas pesanannya. Silahkan duduk di meja kami yang kosong. Kopi anda akan dibawakan oleh waiter kami"<<endl;
+}
+else{
+    cout<<"Maaf, format anda tidak sesuai"<<endl;
+}
+}
+}
+
+
+break;
+
+
+case 2:
+cout<<"Anda memilih Americano seharga RP.15.000 per pcs"<<endl;
+cout<<"\nSilahkan masukkan jumlah Americano yang ingin anda pesan: "<<endl;
+cout<<"N.B. Max diskon adalah 40%. Memesan lebih dari 30pcs tidak akan melewati diskon 40%"<<endl;
+cin>>jumlahminum;
+cout<<"Anda memesan "<<jumlahminum<<" pcs Americano"<<endl;
+
+
+if(jumlahminum >= 5 && jumlahminum <= 9){
+    cout<<"\nSelamat anda mendapatkan diskon 10%!"<<endl;
+    diskon=0.10;
+}
+else if(jumlahminum >= 10 && jumlahminum <= 14){
+    cout<<"\nSelamat anda mendapatkan diskon 15%!"<<endl;
+    diskon=0.15;
+}
+else if(jumlahminum >= 15 && jumlahminum <= 19){
+    cout<<"\nSelamat anda mendapatkan diskon 20%!"<<endl;
+    diskon=0.20;
+}
+else if(jumlahminum >= 20 && jumlahminum <= 24){
+    cout<<"\nSelamat anda mendapatkan diskon 25%!"<<endl;
+    diskon=0.25;
+}
+else if(jumlahminum >= 25 && jumlahminum <= 29){
+    cout<<"\nSelamat anda mendapatkan diskon 30%!"<<endl;
+    diskon=0.30;
+}
+else if(jumlahminum >= 30){
+    cout<<"\nSelamat anda mendapatkan diskon maksimal dari Toko kami, sebanyak 40%!!!"<<endl;
+    diskon=0.40;
+}
+else {
+    cout<<"\nMaaf, berhubung pemesanan anda kurang dari 5 pcs, anda tidak mendapat diskon"<<endl;
+    diskon=0;
+}
+
+suhu2:
+cout<<"\nSilahkan masukkan jumlah Americano dingin/hangat yang anda inginkan"<<endl;
+cout<<"\nBerapa pcs Americano dingin yang anda inginkan?"<<endl;
+cin>>minumdingin;
+cout<<"Berapa pcs Americano hangat yang anda inginkan?"<<endl;
+cin>>minumhangat;
+if(minumdingin+minumhangat!=jumlahminum){
+    cout<<"Maaf, jumlah total Americano dingin/hangat anda tidak sesuai dengan jumlah total Americano yang anda pesan"<<endl;
+    cout<<"Mohon sesuaikan dengan total jumlah yang anda pesan"<<endl;
+    goto suhu2;
+}
+
+
+else {
+pembayaran2:
+cout<<"\nSilahkan masukkan jumlah uang pembayaran anda"<<endl;
+cin>>uangbayar;
+
+
+harga=jumlahminum*15000;
+
+cout<<"\nTotal harga: Rp."<<harga<<endl;
+
+hargadiskon=diskon*harga;
+
+hargafinal=harga-hargadiskon;
+
+cout<<"Diskon: Rp."<<hargadiskon<<endl;
+
+cout<<"Total harga setelah didiskon: Rp."<<hargafinal<<endl;
+
+cout<<"Uang anda: Rp."<<uangbayar<<endl;
+
+uangkembalian=uangbayar - hargafinal;
+if(uangbayar<hargafinal){
+    cout<<"Maaf, uang anda tidak cukup"<<endl;
+    cout<<"Apakah anda ingin mengulang memasukkan uang anda atau kembali ke menu?"<<endl;
+    cout<<"\t1. Masukkan uang kembali\t2. Kembali ke menu\t3. Keluar dari program"<<endl;
+    cin>>pilihan;
+    if(pilihan == 1)
+    goto pembayaran2;
+    if(pilihan == 2)
+    goto awal;
+    if(pilihan == 3)
+    goto akhir;
+}
+
+else{
+cout<<"Uang kembalian anda: RP."<<uangkembalian<<" "<<endl;
+cout<<"\nApakah anda ingin \t1. Takeaway?\t2. Minum ditempat?"<<endl;
+cin>>bungkus;
+if(bungkus == 1){
+    cout<<"Terimakasih atas pesanannya. Kopi anda akan segera dikemas"<<endl;
+}
+else if(bungkus == 2){
+    cout<<"Terimakasih atas pesanannya. Silahkan duduk di meja kami yang kosong. Kopi anda akan dibawakan oleh waiter kami"<<endl;
+}
+else{
+    cout<<"Maaf, format anda tidak sesuai"<<endl;
+}
+}
+}
+
+
+break;
+
+
+case 3:
+cout<<"Anda memilih Latte seharga RP.20.000 per pcs"<<endl;
+cout<<"\nSilahkan masukkan jumlah Latte yang ingin anda pesan: "<<endl;
+cout<<"N.B. Max diskon adalah 40%. Memesan lebih dari 30pcs tidak akan melewati diskon 40%"<<endl;
+cin>>jumlahminum;
+cout<<"Anda memesan "<<jumlahminum<<" pcs Latte"<<endl;
+
+
+if(jumlahminum >= 5 && jumlahminum <= 9){
+    cout<<"\nSelamat anda mendapatkan diskon 10%!"<<endl;
+    diskon=0.10;
+}
+else if(jumlahminum >= 10 && jumlahminum <= 14){
+    cout<<"\nSelamat anda mendapatkan diskon 15%!"<<endl;
+    diskon=0.15;
+}
+else if(jumlahminum >= 15 && jumlahminum <= 19){
+    cout<<"\nSelamat anda mendapatkan diskon 20%!"<<endl;
+    diskon=0.20;
+}
+else if(jumlahminum >= 20 && jumlahminum <= 24){
+    cout<<"\nSelamat anda mendapatkan diskon 25%!"<<endl;
+    diskon=0.25;
+}
+else if(jumlahminum >= 25 && jumlahminum <= 29){
+    cout<<"\nSelamat anda mendapatkan diskon 30%!"<<endl;
+    diskon=0.30;
+}
+else if(jumlahminum >= 30){
+    cout<<"\nSelamat anda mendapatkan diskon maksimal dari Toko kami, sebanyak 40%!!!"<<endl;
+    diskon=0.40;
+}
+else {
+    cout<<"\nMaaf, berhubung pemesanan anda kurang dari 5 pcs, anda tidak mendapat diskon"<<endl;
+    diskon=0;
+}
+
+suhu3:
+cout<<"\nSilahkan masukkan jumlah Latte dingin/hangat yang anda inginkan"<<endl;
+cout<<"\nBerapa pcs Latte dingin yang anda inginkan?"<<endl;
+cin>>minumdingin;
+cout<<"Berapa pcs Latte hangat yang anda inginkan?"<<endl;
+cin>>minumhangat;
+if(minumdingin+minumhangat!=jumlahminum){
+    cout<<"Maaf, jumlah total Latte dingin/hangat anda tidak sesuai dengan jumlah total Latte yang anda pesan"<<endl;
+    cout<<"Mohon sesuaikan dengan total jumlah yang anda pesan"<<endl;
+    goto suhu3;
+}
+
+
+else {
+pembayaran3:
+cout<<"\nSilahkan masukkan jumlah uang pembayaran anda"<<endl;
+cin>>uangbayar;
+
+
+harga=jumlahminum*20000;
+
+cout<<"\nTotal harga: Rp."<<harga<<endl;
+
+hargadiskon=diskon*harga;
+
+hargafinal=harga-hargadiskon;
+
+cout<<"Diskon: Rp."<<hargadiskon<<endl;
+
+cout<<"Total harga setelah didiskon: Rp."<<hargafinal<<endl;
+
+cout<<"Uang anda: Rp."<<uangbayar<<endl;
+
+uangkembalian=uangbayar - hargafinal;
+if(uangbayar<hargafinal){
+    cout<<"Maaf, uang anda tidak cukup"<<endl;
+    cout<<"Apakah anda ingin mengulang memasukkan uang anda atau kembali ke menu?"<<endl;
+    cout<<"\t1. Masukkan uang kembali\t2. Kembali ke menu\t3. Keluar dari program"<<endl;
+    cin>>pilihan;
+    if(pilihan == 1)
+    goto pembayaran3;
+    if(pilihan == 2)
+    goto awal;
+    if(pilihan == 3)
+    goto akhir;
+}
+
+else{
+cout<<"Uang kembalian anda: RP."<<uangkembalian<<" "<<endl;
+cout<<"\nApakah anda ingin \t1. Takeaway?\t2. Minum ditempat?"<<endl;
+cin>>bungkus;
+if(bungkus == 1){
+    cout<<"Terimakasih atas pesanannya. Kopi anda akan segera dikemas"<<endl;
+}
+else if(bungkus == 2){
+    cout<<"Terimakasih atas pesanannya. Silahkan duduk di meja kami yang kosong. Kopi anda akan dibawakan oleh waiter kami"<<endl;
+}
+else{
+    cout<<"Maaf, format anda tidak sesuai"<<endl;
+}
+}
+}
+
+
+break;
+
+
+case 4:
+cout<<"Anda memilih Mochacinno seharga RP.40.000 per pcs"<<endl;
+cout<<"\nSilahkan masukkan jumlah Mochacinno yang ingin anda pesan: "<<endl;
+cout<<"N.B. Max diskon adalah 40%. Memesan lebih dari 30pcs tidak akan melewati diskon 40%"<<endl;
+cin>>jumlahminum;
+cout<<"Anda memesan "<<jumlahminum<<" pcs Mochacinno"<<endl;
+
+
+if(jumlahminum >= 5 && jumlahminum <= 9){
+    cout<<"\nSelamat anda mendapatkan diskon 10%!"<<endl;
+    diskon=0.10;
+}
+else if(jumlahminum >= 10 && jumlahminum <= 14){
+    cout<<"\nSelamat anda mendapatkan diskon 15%!"<<endl;
+    diskon=0.15;
+}
+else if(jumlahminum >= 15 && jumlahminum <= 19){
+    cout<<"\nSelamat anda mendapatkan diskon 20%!"<<endl;
+    diskon=0.20;
+}
+else if(jumlahminum >= 20 && jumlahminum <= 24){
+    cout<<"\nSelamat anda mendapatkan diskon 25%!"<<endl;
+    diskon=0.25;
+}
+else if(jumlahminum >= 25 && jumlahminum <= 29){
+    cout<<"\nSelamat anda mendapatkan diskon 30%!"<<endl;
+    diskon=0.30;
+}
+else if(jumlahminum >= 30){
+    cout<<"\nSelamat anda mendapatkan diskon maksimal dari Toko kami, sebanyak 40%!!!"<<endl;
+    diskon=0.40;
+}
+else {
+    cout<<"\nMaaf, berhubung pemesanan anda kurang dari 5 pcs, anda tidak mendapat diskon"<<endl;
+    diskon=0;
+}
+
+suhu4:
+cout<<"\nSilahkan masukkan jumlah Mochacinno dingin/hangat yang anda inginkan"<<endl;
+cout<<"\nBerapa pcs Mochacinno dingin yang anda inginkan?"<<endl;
+cin>>minumdingin;
+cout<<"Berapa pcs Mochacinno hangat yang anda inginkan?"<<endl;
+cin>>minumhangat;
+if(minumdingin+minumhangat!=jumlahminum){
+    cout<<"Maaf, jumlah total Mochacinno dingin/hangat anda tidak sesuai dengan jumlah total Mochacinno yang anda pesan"<<endl;
+    cout<<"Mohon sesuaikan dengan total jumlah yang anda pesan"<<endl;
+    goto suhu4;
+}
+
+
+else {
+pembayaran4:
+cout<<"\nSilahkan masukkan jumlah uang pembayaran anda"<<endl;
+cin>>uangbayar;
+
+
+harga=jumlahminum*40000;
+
+cout<<"\nTotal harga: Rp."<<harga<<endl;
+
+hargadiskon=diskon*harga;
+
+hargafinal=harga-hargadiskon;
+
+cout<<"Diskon: Rp."<<hargadiskon<<endl;
+
+cout<<"Total harga setelah didiskon: Rp."<<hargafinal<<endl;
+
+cout<<"Uang anda: Rp."<<uangbayar<<endl;
+
+uangkembalian=uangbayar - hargafinal;
+if(uangbayar<hargafinal){
+    cout<<"Maaf, uang anda tidak cukup"<<endl;
+    cout<<"Apakah anda ingin mengulang memasukkan uang anda atau kembali ke menu?"<<endl;
+    cout<<"\t1. Masukkan uang kembali\t2. Kembali ke menu\t3. Keluar dari program"<<endl;
+    cin>>pilihan;
+    if(pilihan == 1)
+    goto pembayaran4;
+    if(pilihan == 2)
+    goto awal;
+    if(pilihan == 3)
+    goto akhir;
+}
+
+else{
+cout<<"Uang kembalian anda: RP."<<uangkembalian<<" "<<endl;
+cout<<"\nApakah anda ingin \t1. Takeaway?\t2. Minum ditempat?"<<endl;
+cin>>bungkus;
+if(bungkus == 1){
+    cout<<"Terimakasih atas pesanannya. Kopi anda akan segera dikemas"<<endl;
+}
+else if(bungkus == 2){
+    cout<<"Terimakasih atas pesanannya. Silahkan duduk di meja kami yang kosong. Kopi anda akan dibawakan oleh waiter kami"<<endl;
+}
+else{
+    cout<<"Maaf, format anda tidak sesuai"<<endl;
+}
+}
+}
+
+
+break;
+
+
+case 5:
+cout<<"Anda memilih Cappucinno seharga RP.45.000 per pcs"<<endl;
+cout<<"\nSilahkan masukkan jumlah Cappucinno yang ingin anda pesan: "<<endl;
+cout<<"N.B. Max diskon adalah 40%. Memesan lebih dari 30pcs tidak akan melewati diskon 40%"<<endl;
+cin>>jumlahminum;
+cout<<"Anda memesan "<<jumlahminum<<" pcs Cappucinno"<<endl;
+
+
+if(jumlahminum >= 5 && jumlahminum <= 9){
+    cout<<"\nSelamat anda mendapatkan diskon 10%!"<<endl;
+    diskon=0.10;
+}
+else if(jumlahminum >= 10 && jumlahminum <= 14){
+    cout<<"\nSelamat anda mendapatkan diskon 15%!"<<endl;
+    diskon=0.15;
+}
+else if(jumlahminum >= 15 && jumlahminum <= 19){
+    cout<<"\nSelamat anda mendapatkan diskon 20%!"<<endl;
+    diskon=0.20;
+}
+else if(jumlahminum >= 20 && jumlahminum <= 24){
+    cout<<"\nSelamat anda mendapatkan diskon 25%!"<<endl;
+    diskon=0.25;
+}
+else if(jumlahminum >= 25 && jumlahminum <= 29){
+    cout<<"\nSelamat anda mendapatkan diskon 30%!"<<endl;
+    diskon=0.30;
+}
+else if(jumlahminum >= 30){
+    cout<<"\nSelamat anda mendapatkan diskon maksimal dari Toko kami, sebanyak 40%!!!"<<endl;
+    diskon=0.40;
+}
+else {
+    cout<<"\nMaaf, berhubung pemesanan anda kurang dari 5 pcs, anda tidak mendapat diskon"<<endl;
+    diskon=0;
+}
+
+suhu5:
+cout<<"\nSilahkan masukkan jumlah Cappucinno dingin/hangat yang anda inginkan"<<endl;
+cout<<"\nBerapa pcs Cappucinno dingin yang anda inginkan?"<<endl;
+cin>>minumdingin;
+cout<<"Berapa pcs Cappucinno hangat yang anda inginkan?"<<endl;
+cin>>minumhangat;
+if(minumdingin+minumhangat!=jumlahminum){
+    cout<<"Maaf, jumlah total Cappucinno dingin/hangat anda tidak sesuai dengan jumlah total Cappucinno yang anda pesan"<<endl;
+    cout<<"Mohon sesuaikan dengan total jumlah yang anda pesan"<<endl;
+    goto suhu5;
+}
+
+
+else {
+pembayaran5:
+cout<<"\nSilahkan masukkan jumlah uang pembayaran anda"<<endl;
+cin>>uangbayar;
+
+
+harga=jumlahminum*45000;
+
+cout<<"\nTotal harga: Rp."<<harga<<endl;
+
+hargadiskon=diskon*harga;
+
+hargafinal=harga-hargadiskon;
+
+cout<<"Diskon: Rp."<<hargadiskon<<endl;
+
+cout<<"Total harga setelah didiskon: Rp."<<hargafinal<<endl;
+
+cout<<"Uang anda: Rp."<<uangbayar<<endl;
+
+uangkembalian=uangbayar - hargafinal;
+if(uangbayar<hargafinal){
+    cout<<"Maaf, uang anda tidak cukup"<<endl;
+    cout<<"Apakah anda ingin mengulang memasukkan uang anda atau kembali ke menu?"<<endl;
+    cout<<"\t1. Masukkan uang kembali\t2. Kembali ke menu\t3. Keluar dari program"<<endl;
+    cin>>pilihan;
+    if(pilihan == 1)
+    goto pembayaran5;
+    if(pilihan == 2)
+    goto awal;
+    if(pilihan == 3)
+    goto akhir;
+}
+
+else{
+cout<<"Uang kembalian anda: RP."<<uangkembalian<<" "<<endl;
+cout<<"\nApakah anda ingin \t1. Takeaway?\t2. Minum ditempat?"<<endl;
+cin>>bungkus;
+if(bungkus == 1){
+    cout<<"Terimakasih atas pesanannya. Kopi anda akan segera dikemas"<<endl;
+}
+else if(bungkus == 2){
+    cout<<"Terimakasih atas pesanannya. Silahkan duduk di meja kami yang kosong. Kopi anda akan dibawakan oleh waiter kami"<<endl;
+}
+else{
+    cout<<"Maaf, format anda tidak sesuai"<<endl;
+}
+}
+}
+
+
+break;
+
+}
+
+
+cout<<"\nApakah anda ingin memesan lagi?\t1. Iya\t2. Tidak"<<endl;
+cin>>ulang;
+}
+while(ulang != 2);
+
+akhir:
+cout<<"\nTerimakasih, sampai jumpa lagi"<<endl;
+
+    return 0;
+
+
+}
